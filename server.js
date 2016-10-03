@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleone ={
+var articles = {
+'article-one': {
  title: 'dipeesh tricks',
  heading: 'arictle one',
  date: 'sep.5.2016',
@@ -19,8 +19,36 @@ var articleone ={
             ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
             ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
          </P>`
+},
+'article-two':{
+ title: 'dipeesh tricks',
+ heading: 'arictle two',
+ date: 'sep.7.2016',
+ content:`
+          <p>
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+          </P>
+          <p>
+            SECOND ARTICLEekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+         </P>`
+},
+'article-three': {
+title: 'dipeesh tricks',
+ heading: 'arictle three',
+ date: 'sep.20.2016',
+ content:`
+          <p>
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+          </P>
+          <p>
+            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+            third articleekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+         </P>`
+}
 };
-
 function createTemplate (data) {
     var title = data.title;
     var date = data.data;
@@ -62,16 +90,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',  function (req, res) {
-  res.send(createTemplate(articleone));
-});
-
-app.get('/article-two',  function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html')); 
-});
-
-app.get('/article-three',  function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+app.get('/:articlename',  function (req, res) {
+    //articlename == article-one
+    //articles[articlename] == {} content object for article one
+    var articlename = req.params.articlename;
+  res.send(createTemplate(articles[articlename]));
 });
 
 app.get('/ui/style.css', function (req, res) {
