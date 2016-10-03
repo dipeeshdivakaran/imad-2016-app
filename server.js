@@ -51,7 +51,7 @@ title: 'dipeesh tricks',
 };
 function createTemplate (data) {
     var title = data.title;
-    var date = datea.date;
+    var date = data.date;
     var heading = data.heading;
     var content = data.content;
     
