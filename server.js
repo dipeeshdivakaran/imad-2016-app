@@ -26,8 +26,7 @@ var articles = {
  date: 'sep.7.2016',
  content:`
           <p>
-            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
-            ekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
+            hai every one this is my web article  every one can see this 
           </P>
           <p>
             SECOND ARTICLEekjhdkw.ebqubkfmhbsdcmkvwufgwmmbskjbclglwglgmnkxgfgnbkcjlgfg
